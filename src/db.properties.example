@@ -1,0 +1,5 @@
+# Copy to db.properties and fill in your own values. Never commit real credentials.
+db.url=jdbc:sqlserver://localhost:1433;databaseName=SmartGym;encrypt=true;trustServerCertificate=true
+db.user=your_db_user
+db.password=your_db_password
+upload.dir=C:/smartgym/uploads

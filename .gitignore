@@ -1,0 +1,18 @@
+# local secrets and config
+src/db.properties
+.env
+*.jks
+*.keystore
+local.properties
+key.properties
+google-services.json
+# build output
+build/
+dist/
+*.war
+*.class
+*.apk
+.dart_tool/
+.gradle/
+.idea/
+nbproject/private/

@@ -1,0 +1,73 @@
+/*
+ * Loaded after style.css so these small overrides win the cascade.
+ * The shell (header/sidebar/main/footer) and general component styling now
+ * comes entirely from style.css - this file only keeps the app-specific
+ * status badge colors the base stylesheet has no concept of.
+ */
+
+/* Status badges ---------------------------------------------------------
+   Pages set a semantic class alongside "badge": status-draft, status-sent,
+   status-accepted, status-rejected, status-converted, status-unpaid,
+   status-partial, status-paid, status-cancelled, status-licensed,
+   status-expiring, status-expired. */
+
+.badge.bg-secondary,
+.badge.status-draft,
+.badge.status-unpaid {
+  background-color: #eef0f4 !important;
+  color: #475569 !important;
+}
+
+.badge.status-sent,
+.badge.status-partial,
+.badge.status-expiring {
+  background-color: #fef3c7 !important;
+  color: #92400e !important;
+}
+
+.badge.status-accepted,
+.badge.status-paid,
+.badge.status-licensed {
+  background-color: #dcfce7 !important;
+  color: #15803d !important;
+}
+
+.badge.status-rejected,
+.badge.status-cancelled,
+.badge.status-expired {
+  background-color: #fee2e2 !important;
+  color: #b91c1c !important;
+}
+
+.badge.status-converted {
+  background-color: #e0f2fe !important;
+  color: #0369a1 !important;
+}
+
+/* Dashboard's 4th info-card variant - style.css only defines
+   sales-card/revenue-card/customers-card icon colors, add one more. */
+.dashboard .outstanding-card .card-icon {
+  color: #dc2626;
+  background: #fee2e2;
+}
+
+/* style.css's info-card numbers use a fixed 64px icon + 28px
+   number in a flex row with no min-width:0, so on the narrow col-6 cards
+   mobile gets (two cards per row), a large amount like "8200.00" is wider
+   than the space left after the icon and overflows past the card edge.
+   Shrink both and let the flex child actually respect that shrink. */
+@media (max-width: 576px) {
+  .dashboard .card-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
+  }
+  .dashboard .info-card h6 {
+    font-size: 18px;
+    overflow-wrap: anywhere;
+  }
+  .dashboard .info-card .ps-3 {
+    min-width: 0;
+    padding-left: 0.75rem !important;
+  }
+}

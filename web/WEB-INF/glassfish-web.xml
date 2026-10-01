@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glassfish-web-app PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Servlet 3.0//EN" "http://glassfish.org/dtds/glassfish-web-app_3_0-1.dtd">
+<glassfish-web-app error-url="">
+  <context-root>/SmartGymManagement</context-root>
+  <!-- GlassFish web modules default to parent-first classloading, so any class also present
+       in the domain's shared lib/ext wins over the same-named class in this app's own
+       WEB-INF/lib. That silently shadowed our bundled mssql-jdbc driver with a stale
+       sqljdbc4.jar sitting in personal_domain/lib/ext (a leftover from another app sharing
+       this domain), which had a DATE-handling bug. delegate="false" makes this app's own
+       WEB-INF/lib/classes win first, regardless of what else is on the shared domain classpath. -->
+  <class-loader delegate="false"/>
+  <jsp-config>
+    <property name="keepgenerated" value="true">
+      <description>Keep a copy of the generated servlet class' java code.</description>
+    </property>
+    <property name="compilerSourceVM" value="1.8">
+      <description>Allow Java 7+ syntax (e.g. diamond operator) in JSP-generated servlets.</description>
+    </property>
+    <property name="compilerTargetVM" value="1.8">
+      <description>Allow Java 7+ syntax (e.g. diamond operator) in JSP-generated servlets.</description>
+    </property>
+  </jsp-config>
+</glassfish-web-app>
